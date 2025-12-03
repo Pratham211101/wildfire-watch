@@ -1,27 +1,55 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { useState } from 'react';
+import Hero from './components/Hero';
+import MapView from './components/MapView';
+import HotspotList from './components/HotspotList';
 
-const queryClient = new QueryClient();
+interface Hotspot {
+  id: number;
+  lat: number;
+  lng: number;
+  confidence: number;
+  frp: number;
+  detectionTime: string;
+}
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+interface Weather {
+  temp: number;
+  humidity: number;
+  windSpeed: number;
+}
+
+const App = () => {
+  const [hotspots, setHotspots] = useState<Hotspot[]>([]);
+  const [weather, setWeather] = useState<Weather | null>(null);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Hero />
+      <MapView 
+        onHotspotsUpdate={setHotspots} 
+        onWeatherUpdate={setWeather}
+      />
+      <HotspotList hotspots={hotspots} weather={weather} />
+      
+      {/* Footer */}
+      <footer className="py-8 border-t border-border">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-muted-foreground text-sm">
+            Data sourced from{' '}
+            <a 
+              href="https://firms.modaps.eosdis.nasa.gov/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              NASA FIRMS
+            </a>
+            {' '}• Built for wildfire awareness and prevention
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+};
 
 export default App;
