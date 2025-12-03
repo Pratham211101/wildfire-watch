@@ -1,28 +1,38 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wildfire Prediction System | Real-time Fire Monitoring</title>
-    <meta name="description" content="Advanced satellite-based wildfire detection using MODIS FIRMS data. Monitor fire hotspots in real-time and protect communities." />
-    <meta name="keywords" content="wildfire prediction, fire monitoring, MODIS FIRMS, satellite detection, fire hotspots" />
-    <meta name="author" content="Wildfire Prediction System" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Wildfire Watch — Real-time Wildfire Monitoring</title>
 
-    <meta property="og:title" content="Wildfire Prediction System" />
-    <meta property="og:description" content="Real-time wildfire monitoring and prediction using satellite data" />
+    <meta name="description" content="Wildfire Watch — an experimental geospatial application for surfacing nearby wildfire activity and risk indicators using satellite data and environmental APIs." />
+    <meta name="keywords" content="wildfire, satellite, MODIS, FIRMS, geospatial, risk, monitoring, climate" />
+    <meta name="author" content="Pratham Goswami" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Wildfire Watch — Real-time Wildfire Monitoring" />
+    <meta property="og:description" content="Interactive map-based interface that surfaces nearby fire hotspots and environmental risk indicators using satellite and weather data." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="https://yourdomain.com/assets/og-wildfire-watch.png" />
+    <meta property="og:url" content="https://yourdomain.com" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Wildfire Prediction System" />
-    <meta name="twitter:description" content="Real-time wildfire monitoring and prediction using satellite data" />
-    
-    <link rel="canonical" href="/" />
-    
+    <meta name="twitter:site" content="@your_twitter_handle" />
+    <meta name="twitter:title" content="Wildfire Watch — Real-time Wildfire Monitoring" />
+    <meta name="twitter:description" content="Interactive map-based interface that surfaces nearby fire hotspots and environmental risk indicators using satellite and weather data." />
+    <meta name="twitter:image" content="https://yourdomain.com/assets/og-wildfire-watch.png" />
+
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <link rel="icon" href="/favicon.png" />
+
     <style>
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.2); opacity: 0.8; }
+      /* small sensible default to avoid FOUC for quick demos */
+      html,body { height:100%; margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#0b1220; color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+      @keyframes subtle-pulse {
+        0%,100%{transform:scale(1);opacity:1}
+        50%{transform:scale(1.02);opacity:.95}
       }
     </style>
   </head>
